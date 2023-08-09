@@ -11,7 +11,7 @@ avec dcode on trouve NotSoEasy mais ca ne marche pas.
 echo NotSoEasy | sha1sum : cela ne donne pourtant pas le meme cryptage
 printf NotSoEasy | sha1sum : cela donne le bon, echo doit rajouter quelque chose
 
-en cherchant dans le man de echo on voit qu'il faut rajotuer -n a la commande pour le pas ajouter de newline a la commande et donc ne pas fausser le cryptage
+en cherchant dans le man de echo on voit qu'il faut rajouter -n a la commande pour le pas ajouter de newline a la commande et donc ne pas fausser le cryptage
 
 
 au final tout cela ne sert pas a grand chose. le but c'est de slalomer entre les commande faite par le programme. 
@@ -21,11 +21,12 @@ dans ce style :
 
 -n NotSoEasy > /dev/null ; /bin/getflag > ~/flag.txt ; echo -n NotSoEasy
 
-apres plusieurs moment de recherche j'en suis arrivé a cette ecriture
+apres plusieurs moment de recherche on en est arrivé a cette ecriture
+(a rentrer dans la demande de mot de passe)
 
  ; /bin/getflag > /tmp/flag.txt ; echo -n NotSoEasy
 
-on slalome des le debut pour ne pas faire le echo, et on redirige getflag dans un fichier dans tmp, puis on fini proprement avec echo -n NotSoEasy. Le programme ne sera pas content mais un cat du fichier tmp nous suffira a recuperer le flag
+on skip des le debut pour ne pas faire le echo, et on redirige getflag dans un fichier dans tmp, puis on fini proprement avec echo -n NotSoEasy. Le programme ne sera pas content mais un cat du fichier tmp nous suffira a recuperer le flag
 
 ---
 ## Flag : fa6v5ateaw21peobuub8ipe6s

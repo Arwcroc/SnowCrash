@@ -19,7 +19,8 @@ getegid : getgid() retourne le GID réel du processus appelant.
 geteuid : geteuid() retourne l'UID effectif du processus appelant.
 
 ---
-get env semble une piste, mais pas echo qui n'est pas la bonne piste pour ce level. le programmme renvoit level07 car selon LTRACE c'est la fonction getenv qui va chercher le logname, il faudrait le changer dans les variables env pour afficher getflag, mais pour l'instant il n'y a que la string qui s'affiche, je dois trouver si il y a un moyen d'executer.
+
+get env semble une piste, mais pas echo qui n'est pas la bonne piste pour ce level. le programmme renvoit level07 car selon LTRACE c'est la fonction getenv qui va chercher le logname, il faudrait le changer dans les variables env pour afficher getflag, mais pour l'instant il n'y a que la string qui s'affiche, on doit trouver si il y a un moyen d'executer.
 
 echo "/bin/exec /bin/getflag" > /tmp/echo 
 chmod 777 /tmp/echo
@@ -32,6 +33,7 @@ pour modifier le logname il faut faire export LOGNAME puis mettre ce que l'on ve
 et pour cause, le ltrace nous a bien montré ce qui se fait dans le code, system appel echo et juste apres logname pour afficher logname
 sauf que, on peut separer les deux commandes, en donnant la valeur ';/bin/getflag' a logname.  de ce fait, le system va executer echo de rien, puis executer getflag et nous donner la valeur puisque ce n'est pas nous qui demandons mais le system
 
+lancer le programme level07
 
 ---
 ## Flag : fiumuikeil55xe9cu4dood66h

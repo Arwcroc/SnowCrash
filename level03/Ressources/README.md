@@ -12,23 +12,21 @@ de ce fait, pour plus de visibilite, j'utilises la commande strings avec le prog
 
 il faut donc modifier le env. en recherchant je trouve que c'est une base du hack, modifier le path du env pour qu' il cherche un programme qu'il attend mais pas au meme endroit pour executer un programme malveillant
 
-(merci romain) j'apprend qu'il ne faut pas de mot de passe mais un flag pour ce niveau. donc je dois utiliser la commande getflag mais elle ne me donne rien car je n'ai pas le mot de passe de flag03
+on apprend qu'il ne faut pas de mot de passe mais un flag pour ce niveau. donc utiliser la commande getflag mais elle ne me donne rien car je n'ai pas le mot de passe de flag03
 
-je copie le programme /bin/getflag chez moi. ca marche pas, je nai pas les droits
+copie du programme /bin/getflag sur le dossier actuel en ayant change les droits. 
+chmod u+w .  
+chmod pour modifier les droits u pour le user donc nous w pour le droit d'ecriture qui permet de copier
 
-il faut changer les droits de mon dossier. chmod u+w .  / chmod pour modifier les droits u pour le user donc moi w pour le droit d'ecrituere qui me permet de copier
-
-je recommence la copie, et je l'ai
-
-il faut modifier le nom de getflag, pour que level utilise mon getflag a la place de echo a l'avenir. mv getflag echo
-
-apres des recherches et des enervements, le probleme c'est ma vm, j'ai trop fais de test et de merde dedans que pu rien marche
+il faut modifier le nom de getflag, pour que level utilise notre getflag a la place de echo a l'avenir. mv getflag echo
 
 relance la vm pour modifier le path proprement, un endroit que je connais avoir le droit d'acces c'est tmp
 
 je change donc le path pour que son premier chemin de recherche ca soit la, et il y trouvera mon getflag, deguise en echo PATH="/tmp:$PATH"
 
-je lance le programme et il me donne le flag
+on change le pass avec export PATH="/tmp:$PATH" , et on copie notre getflag(echo) dans tmp __cd echo /tmp__
+
+on lance le programme et il donne le flag
 
 ## Flag : qi0maab88jeaj46qoumi7maus
 

@@ -19,21 +19,26 @@
 
 ### Cheminement
 
+chmod u+w .
+
 Début de la recherche, il y a un fichier php lisible et son éxécutable.  
-Je réécris la fonction en mode "norme" pour pouvoir lire correctement.  
-Sachant qu'il y a beaucoup de preg_replace, je me dis que ce n'est pas l'élément important, ça doit être le file_get_contents.   
-La fonction prend en argument y, je test donc de lancer avec y = /bin/getflag
-A prévoir, on me dit que je n'ai pas les droits.   
-On me dit que justement il n'y avait pas de pièges, c'est bien le preg_replace qui importe, et surtout la regex.   
-Je déchiffre la regex pour plus de lisibilité (voir au dessus)
-Je fais les premiers tests (voir en dessous).  
+On réécrit la fonction en mode "norme" pour pouvoir lire correctement.  
+ 
+La fonction prend en argument y, je test donc de lancer avec y = /bin/getflag  
+  
+On déchiffre la regex pour plus de lisibilité (voir au dessus)
+On fait les premiers tests (voir en dessous).  
 Beaucoup d'heures de recherches pour comprendre ce que je peux faire pour 'hacker' le flag.   
 Le truc chiant c'est que la partie replace qui prend la deuxième parenthèse de la regex, le fout obligatoirement en string, donc tout ressort tel quel sans avoir accés.   
-Il faut donc trouver la douille pour passer outre ce système.   
+Il faut donc trouver la douille pour passer outre ce système. 
+
 La réponse c'est ça : '[x ${`$z`}]'  
-C'est tricky et moche mais ça marche. Le x pour la première partie inutile pour nous, $ pour la variable, qu'on imbrique dans {} et dans `` pour retirer '/bin/getflag' et non pas "/bin/getflag". Dans notre cas, le flag e va vouloir éxécuter getflag mais en tant que variable, et ne va pas y arriver.  
+
+Le x pour la première partie inutile pour nous, $ pour la variable, qu'on imbrique dans {} et dans `` pour avoir '/bin/getflag' et non pas "/bin/getflag". Dans notre cas, le flag e va vouloir éxécuter getflag mais en tant que variable, et ne va pas y arriver.  
 C'est donc grâce à l'erreur qu'on peut récuperer le flag.
 On met la regex dans un fichier dans tmp, on utilise le php pour lire ce fichier qui va lui utiliser le z qui sera le getflag.
+
+(VOIR EN BAS pour copier coller)
 
 ---
 ## Flag : wiok45aaoguiboiki2tuin6ub

