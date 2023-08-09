@@ -2,20 +2,20 @@
 
 ## Recherche
 ---
-On arrive sur le level 14, avec ll on ne trouve rien. Le fichier étant complétement vide, je n'ai accés à rien d'utile sauf une chose, que nous utilisons depuis le début : /bin/getflag
+On arrive sur le level 14, avec ll on ne trouve rien. Le fichier étant complétement vide, on n'a accés à rien d'utile sauf une chose, que nous utilisons depuis le début : /bin/getflag
 
-En demandant à mes connaissances, la seule solution ici est donc d'utiliser gdb sur getflag pour aller dans le programme comprendre son fonctionnement. 
+En demandant à nos connaissances, la seule solution ici est donc d'utiliser gdb sur getflag pour aller dans le programme comprendre son fonctionnement. 
 il faut donc faire : gdb /bin/getflag
 
 ici, on peut commencer a faire break (ou b) main pour initier un breakpoint, puis run (ou r) pour lancer getflag, et enfin disasemble (ou disas) pour voir l'entièreté du programme.
 
-apres avoir lu tout le programme, j'ai remarqué un paterne cyclique, dont j'ai laissé les lignes importantes en bas de ce fichier. En fait, apres reflexion, recherche etc, je me suis apercu que c'etait les cle crypté de tous les level de snowcrash, ce qui est au final logique. mais cela ne nous aidera pas ici. 
+apres avoir lu tout le programme, on a remarqué un patern cyclique, dont les lignes importantes sont en bas de ce fichier. En fait, apres reflexion, recherche etc, on s'est apercu que c'etait les cle crypté de tous les level de snowcrash, ce qui est au final logique. mais cela ne nous aidera pas ici. 
 
-j'ai donc essayé de faire comme pour le level d'avant, chercher une difference d'id pour acceder a une zone qui m'est interdite en temps normal.
-il y a bien une différence. mon id est 2014, alors que l'id de flag14 est 3014. j'ai cherché et essayé a changer cela dans gdb mais je n'ai pas réussi.
+On a donc essayé de faire comme pour le level d'avant, chercher une difference d'id pour acceder a une zone qui m'est interdite en temps normal.
+il y a bien une différence. l'id est 2014, alors que l'id de flag14 est 3014. Pas possible de changer dans gdb
 
-j'ai donc continué a chercher, et j'ai trouvé que au debut du programme il y avait un ptrace. en fait, en utilisant le b main je passe obligatoirement par ptrace. le ptrace en question permet de tourner en fond pour limiter les acces memoires, interdire le "reverse" entre autre restriction.
-a partir de cela j'ai pensé a quelques choses, si ce ptrace check si je suis le bon id, il y a forcement un endroit ou il fait la comparaison. comme il n'y a pas de int dans l'asm, j'ai transformé 3014 en hexa et j'ai trouvé BC6. en cherchant dans le disas, on trouve bien un : 
+On a trouvé que au debut du programme il y avait un ptrace. en fait, en utilisant le b main je passe obligatoirement par ptrace. le ptrace en question permet de tourner en fond pour limiter les acces memoires, interdire le "reverse" entre autre restriction.
+a partir de cela on a pensé a quelques choses, si ce ptrace check si on a le bon id, il y a forcement un endroit ou il fait la comparaison. comme il n'y a pas de int dans l'asm, on a transformé 3014 en hexa pour trouv BC6. en cherchant dans le disas, on trouve bien un : 
 
 0x08048bb6 <+624>:	cmp    $0xbc6,%eax
 
