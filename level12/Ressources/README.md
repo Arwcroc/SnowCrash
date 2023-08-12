@@ -9,7 +9,7 @@ il va falloir bypass les 2 regles de triage, celle qui remplace toute les minusc
 la string dans le @output est entre des crochets d'execution, il faut donc remplacer le $XX part ce qu'on veut
 
 on cree un fichier GETFLAG dans tmp pour coder ce script 
-
+chmod u+w .
 vim /tmp/GETFLAG
 
 #!/bin/bash
@@ -29,7 +29,8 @@ le but c'est de faire en sorte qu'il exec notre script
 dans la solution ci apres, l'utilisation des quotes permet de limiter et de signifier qu'il s'agit d'un seul element, l'etoile permet quand a elle de faire l'utilisation de wildcard, le programme va chercher partout un quelque chose qui s'appelle GETFLAG, peut importe ou il est
 
 curl localhost:4646/?x='`/*/GETFLAG`'
-
+ou
+curl localhost:4646/?x='$(/*/GETFLAG)'
 
 pour finir, un cat /tmp/flag nous donnera le sesame
 

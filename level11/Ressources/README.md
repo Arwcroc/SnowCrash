@@ -25,6 +25,8 @@ apres plusieurs moment de recherche on en est arrivé a cette ecriture
 (a rentrer dans la demande de mot de passe)
 
  ; /bin/getflag > /tmp/flag.txt ; echo -n NotSoEasy
+ou plus simple 
+; /bin/getflag > /tmp/flag.txt
 
 on skip des le debut pour ne pas faire le echo, et on redirige getflag dans un fichier dans tmp, puis on fini proprement avec echo -n NotSoEasy. Le programme ne sera pas content mais un cat du fichier tmp nous suffira a recuperer le flag
 

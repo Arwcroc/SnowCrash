@@ -34,6 +34,7 @@ et pour cause, le ltrace nous a bien montré ce qui se fait dans le code, system
 sauf que, on peut separer les deux commandes, en donnant la valeur ';/bin/getflag' a logname.  de ce fait, le system va executer echo de rien, puis executer getflag et nous donner la valeur puisque ce n'est pas nous qui demandons mais le system
 
 lancer le programme level07
+LOGNAME="; /bin/getflag" ./level07
 
 ---
 ## Flag : fiumuikeil55xe9cu4dood66h

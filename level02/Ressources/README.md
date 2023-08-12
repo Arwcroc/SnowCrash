@@ -4,13 +4,13 @@
 
 utilisation de scp pour copier du ssh vers mon poste.
 
-__*scp -P 4242 level02@192.168.56.(101):/level02.pcap .  *__
+__*scp -P 4242 level02@192.168.56.(101):/home/user/level02/level02.pcap .  *__
 
 ouverture du fichier avec wireshark, a un moment il y a ecrit password
 
 dans cette page ou il y a ecrit password, en effectuant une analyse : follow -> tcp stream, on peut voir les echanges entre le serveur et le client
 
-de ce fait, on peut voir la reponse du client au moment ou le password est demande. 
+de ce fait, on peut voir la reponse du client au moment ou le password est demande. (page 43)
 
 on trouve ceci : ft_wandr...NDRel.L0L
 

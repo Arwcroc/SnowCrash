@@ -21,7 +21,7 @@ cat /usr/sbin/openarenaserver
 
 le for est pour parcourir tous les fichiers de /opt/openarenaserver, le ulimit pour passer les fichiers qui prendraient trop de temps, et le bash -x est apparemment pour du debug.
 
-on peut rajouter un fichier dans ce dossier, je peux donc mettre un script dedans qui sera executer toutes les 2 minutes.
+on peut rajouter un fichier dans ce dossier, on peut donc mettre un script dedans qui sera execute toutes les 2 minutes.
 
 echo "/bin/getflag > /tmp/level05" > /opt/openarenaserver/script.sh
 

@@ -14,6 +14,8 @@ connect : The connect() function establishes the connection of a socket between 
 
 puts : used to write a line or string to the output( stdout ) stream. It prints the passed string with a newline and returns an integer value. The return value depends on the success of the writing procedure.
 
+-------------------------------------------------
+
 dans un terminal avec ssh ouvert sur la vm creer ce script dolink
 il va supprimer si ca existe et recreer un lien symbolique entre token et tmpflag10
 

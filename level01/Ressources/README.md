@@ -21,7 +21,7 @@ le mot de passe du flag01 semble etre crypte en **_"Data Encryption Standard"_**
 il faudrait utiliser john the ripper comme preconise dans la video du staff
 install john the ripper (demarche en bas)
 
-**_john ./Documents/snowcrash/papass_**
+**_john --show ./Documents/snowcrash/papass_**
 
 code décrypté et fonctionnel : 
 
